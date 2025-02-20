@@ -1,0 +1,114 @@
+{
+  "name": "emoji-mapper",
+  "displayName": "emoji-mapper",
+  "description": "Map and replace emojis to different text or symbols",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "emoji-mapper.openDocument",
+        "title": "Map the Open Document"
+      }
+    ],
+    "configuration": {
+      "title": "Emoji Mapper",
+      "properties": {
+        "emoji-mapper.mappings": {
+          "type": "array",
+          "default": [
+            {
+              "target": "👨‍💼",
+              "replacement": ""
+            },
+            {
+              "target": "🧝‍♀️",
+              "replacement": ""
+            },
+            {
+              "target": "🐨",
+              "replacement": ""
+            },
+            {
+              "target": "🦺",
+              "replacement": ""
+            },
+            {
+              "target": "💰",
+              "replacement": ""
+            },
+            {
+              "target": "📝",
+              "replacement": ""
+            },
+            {
+              "target": "🦉",
+              "replacement": ""
+            },
+            {
+              "target": "📜",
+              "replacement": ""
+            },
+            {
+              "target": "💣",
+              "replacement": ""
+            },
+            {
+              "target": "💪",
+              "replacement": ""
+            },
+            {
+              "target": "🏁",
+              "replacement": ""
+            },
+            {
+              "target": "🚨",
+              "replacement": ""
+            }
+          ],
+          "scope": "resource",
+          "description": "The mappings of emojis to their corresponding replacements",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "description": "The emoji to be replaced"
+              },
+              "replacement": {
+                "type": "string",
+                "description": "The replacement text or symbol"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.97.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
