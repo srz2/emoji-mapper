@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
-import { CountOccurencesInString, GetRangeOfTextDocument } from '../Utils/Utils';
-import { EmojiMapping } from '../models/EmojiMapping';
+import { CountOccurencesInString, GetRangeOfTextDocument, GetMapping } from '../Utils/Utils';
 
 export function MapOpenDocument() {
     // Get text from open document
@@ -10,8 +9,8 @@ export function MapOpenDocument() {
     }
     let content  = doc.getText();
 
-    // Get Mappings from Settings or something
-    const mappings = vscode.workspace.getConfiguration('emoji-mapper').get<EmojiMapping[]>('mappings') ?? [];
+    // Get Mappings
+    const mappings = GetMapping();
 
     // Replace any Mappings with replacement string
     let count: number = 0;

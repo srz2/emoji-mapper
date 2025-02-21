@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
-import { CountOccurencesInString, GetRangeOfTextDocument } from '../Utils/Utils';
-import { EmojiMapping } from '../models/EmojiMapping';
+import { CountOccurencesInString, GetMapping, GetRangeOfTextDocument } from '../Utils/Utils';
 
 export async function MapAllOpenDocuments() {
     let count: number = 0;
@@ -9,8 +8,8 @@ export async function MapAllOpenDocuments() {
     // Get text from open document
     const openTabs = vscode.window.tabGroups.all.flatMap(group => group.tabs);
 
-    // Get Mappings from Settings or something
-    const mappings = vscode.workspace.getConfiguration('emoji-mapper').get<EmojiMapping[]>('mappings') ?? [];
+    // Get Mappings
+    const mappings = GetMapping();
 
     // Create an editable work area
     const workspaceEdit = new vscode.WorkspaceEdit();

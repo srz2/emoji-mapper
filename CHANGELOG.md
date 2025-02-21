@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.3
+
+- Attemp to fix gif link
+- Internal code move to util for mappings
+
 ## 1.0.2
 
 - Added demo gif to readme
