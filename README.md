@@ -24,3 +24,7 @@ workspace
 
 The mappings are handled in a settings/mapping dialog. You are able to
 replace any single emoji with a different emoji/symbol or text replacement
+
+# Demo
+
+![](https://github.com/srz2/emoji-mapper/blob/main/assets/screenrecording.gif)
