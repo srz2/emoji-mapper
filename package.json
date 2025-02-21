@@ -5,7 +5,7 @@
   "version": "1.1.0",
   "icon": "icon.png",
   "repository": "https://github.com/srz2/emoji-mapper",
-  "publisher": "StevenZilberberg",
+  "publisher": "srz2",
   "engines": {
     "vscode": "^1.97.0"
   },
