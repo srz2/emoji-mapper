@@ -21,8 +21,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Bump Version
+        run: |
+          npm version minor
+
+      - name: Push Version Change
+        run: git push --follow-tags
+
       - name: Package the Extension
         run: npx vsce package
 
       - name: Publish the Extension
-        run: npx vsce publish minor -p ${{ secrets.PAT_VS_MARKETPLACE }}
+        run: npx vsce publish -p ${{ secrets.PAT_VS_MARKETPLACE }}
