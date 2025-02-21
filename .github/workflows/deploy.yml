@@ -9,6 +9,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+    
+      - name: Setup Git User Config
+        uses: fregante/setup-git-user@v1
 
       - name: Set Up Node.js
         uses: actions/setup-node@v4
