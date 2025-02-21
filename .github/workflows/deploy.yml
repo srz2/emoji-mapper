@@ -25,7 +25,7 @@ jobs:
 
       - name: Bump Version
         run: |
-          npm version minor
+          npm version minor -m "Bump version to %s [skip ci]"
 
       - name: Push Version Change
         run: git push --follow-tags
