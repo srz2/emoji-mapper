@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: ["main"]
+
+name: Deploy Extension
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Package the Extension
+        run: npx vsce package
+
+      - name: Publish the Extension
+        run: npx vsce publish minor -p ${{ secrets.PAT_VS_MARKETPLACE }}
