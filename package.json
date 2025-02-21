@@ -2,7 +2,7 @@
   "name": "emoji-mapper",
   "displayName": "Emoji Mapper",
   "description": "Map and replace emojis to different text or symbols",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "icon.png",
   "repository": "https://github.com/srz2/emoji-mapper",
   "publisher": "StevenZilberberg",
@@ -17,8 +17,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "emoji-mapper.openDocument",
-        "title": "Map the Open Document"
+        "command": "emoji-mapper.mapOpenDocument",
+        "title": "Map the Open Document",
+        "category": "Emoji Mapper"
+      },
+      {
+        "command": "emoji-mapper.mapAllOpenDocuments",
+        "title": "Map All Open Documents",
+        "category": "Emoji Mapper"
       }
     ],
     "configuration": {
