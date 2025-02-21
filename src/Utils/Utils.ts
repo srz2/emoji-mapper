@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
 
 import { Position, Range, TextDocument } from 'vscode';
 import { EmojiMapping } from '../models/EmojiMapping';
