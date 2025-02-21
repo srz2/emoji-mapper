@@ -27,4 +27,4 @@ replace any single emoji with a different emoji/symbol or text replacement
 
 # Demo
 
-![](https://github.com/srz2/emoji-mapper/blob/main/assets/screenrecording.gif)
+![](https://raw.githubusercontent.com/srz2/emoji-mapper/refs/heads/main/assets/screenrecording.gif)
