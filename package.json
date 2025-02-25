@@ -2,7 +2,7 @@
   "name": "emoji-mapper",
   "displayName": "Emoji Mapper",
   "description": "Map and replace emojis to different text or symbols",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "icon": "icon.png",
   "repository": "https://github.com/srz2/emoji-mapper",
   "publisher": "srz2",
