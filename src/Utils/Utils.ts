@@ -1,4 +1,4 @@
-import * as vscode from 'vscode'
+import * as vscode from 'vscode';
 
 import { Position, Range, TextDocument } from 'vscode';
 import { EmojiMapping } from '../models/EmojiMapping';
@@ -34,4 +34,17 @@ export function GetMapping(
         x.target.match(new RegExp(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g)));
 
     return filteredMappings;    
+}
+
+export function FindEmojiPositions(text: string): number[] {
+    // Updated regex to capture entire emoji sequences
+    const emojiRegex = /(\p{Extended_Pictographic}(\p{Join_Control}\p{Extended_Pictographic})*)/gu;
+    const positions: number[] = [];
+
+    let match;
+    while ((match = emojiRegex.exec(text)) !== null) {
+        positions.push(match.index!);
+    }
+
+    return positions;
 }

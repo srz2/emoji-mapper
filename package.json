@@ -25,6 +25,11 @@
         "command": "emoji-mapper.mapAllOpenDocuments",
         "title": "Map All Open Documents",
         "category": "Emoji Mapper"
+      },
+      {
+        "command": "emoji-mapper.removeAllEmojisFromDocument",
+        "title": "Remove All Emojis from the Open Document",
+        "category": "Emoji Mapper"
       }
     ],
     "configuration": {
