@@ -48,3 +48,34 @@ export function FindEmojiPositions(text: string): number[] {
 
     return positions;
 }
+
+export function removeEmojisByIndex(value: string, indices: number[]): string {
+    // Ensure indices correspond to actual grapheme clusters
+    let graphemes: string[] = [];
+    let indexMap: number[] = [];
+    
+    let segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
+    let currentIndex = 0;
+    
+    for (let segment of segmenter.segment(value)) {
+        graphemes.push(segment.segment);
+        indexMap.push(currentIndex);
+        currentIndex += segment.segment.length;
+    }
+    
+    // Sort indices in descending order to avoid shifting issues
+    indices.sort((a, b) => b - a);
+    
+    // Convert provided indices to corresponding grapheme index
+    let graphemeIndices = indices.map(i => indexMap.indexOf(i)).filter(i => i !== -1);
+    
+    // Remove graphemes at specified indices
+    for (let index of graphemeIndices) {
+        if (index >= 0 && index < graphemes.length) {
+            graphemes.splice(index, 1);
+        }
+    }
+    
+    // Join the array back into a string
+    return graphemes.join('');
+}

@@ -1,14 +1,11 @@
 import * as vscode from 'vscode';
-import { CountOccurencesInString, GetMapping, GetRangeOfTextDocument } from '../Utils/Utils';
+import { FindEmojiPositions, GetRangeOfTextDocument, removeEmojisByIndex } from '../Utils/Utils';
 
-export async function MapAllOpenDocuments() {
+export async function RemoveAllEmojisFroAllOpenDocuments() {
     let count: number = 0;
 
     // Get text from open document
     const openTabs = vscode.window.tabGroups.all.flatMap(group => group.tabs);
-
-    // Get Mappings
-    const mappings = GetMapping();
 
     // Create an editable work area
     const workspaceEdit = new vscode.WorkspaceEdit();
@@ -20,13 +17,19 @@ export async function MapAllOpenDocuments() {
 
         // Get the content
         const document = await vscode.workspace.openTextDocument(tab.input.uri);
-        let content  = document.getText(); 
+        let content  = document.getText();
 
-        // Replace any Mappings with replacement string
-        mappings.forEach(map => {
-            count += CountOccurencesInString(content, map.target);
-            content = content?.replaceAll(map.target, map.replacement);
-        });
+        content = content
+                    .split('\n')
+                    .map(line => {
+                        const positions = FindEmojiPositions(line);
+                
+                        // Update counter
+                        count += positions.length;
+                
+                        const newValue = removeEmojisByIndex(line, positions);
+                        return newValue;
+                    }).join("\n");
 
         // Show the document in an editor (needed to modify it)
         const fullRange = GetRangeOfTextDocument(document);

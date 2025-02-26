@@ -3,6 +3,7 @@ import * as vscode from 'vscode';
 import { MapOpenDocument } from './commands/OpenDocument';
 import { MapAllOpenDocuments } from './commands/AllOpenDocument';
 import { RemoveAllEmojisFromDocument } from './commands/RemoveAllEmojisFromDocument';
+import { RemoveAllEmojisFroAllOpenDocuments } from './commands/RemoveAllEmojisFromAllOpenDocuments';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -11,6 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 	registerCommand(context, 'emoji-mapper.mapOpenDocument', MapOpenDocument);
 	registerCommand(context, 'emoji-mapper.mapAllOpenDocuments', MapAllOpenDocuments);
 	registerCommand(context, 'emoji-mapper.removeAllEmojisFromDocument', RemoveAllEmojisFromDocument);
+	registerCommand(context, 'emoji-mapper.removeAllEmojisFromAllOpenDocuments', RemoveAllEmojisFroAllOpenDocuments);
 }
 
 function registerCommand(context: vscode.ExtensionContext, command: string, callback: (result: void) => void){

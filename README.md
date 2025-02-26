@@ -3,9 +3,9 @@ Emoji Mapper
 
 # Introduction
 
-Emoji Mapper is a simple extension that allows you to map and replace emojis
-inside your current document or project to some other symbol or text. This
-helps you clean up your workspace and avoid distractions
+Emoji Mapper is a simple extension that allows you to map, replace, or
+remove emojis inside your current document or project to some other
+symbol or text. This helps you clean up your workspace and avoid distractions
 
 # Usage
 
@@ -19,6 +19,14 @@ This will trigger the emoji mapper to only your current file
 
 This will trigger the emoji mapper to all files which are open in your
 workspace
+
+## Trigger Emoji Removal from Open Document
+
+This will trigger removal of all emojis in the current open document
+
+## Trigger Emoji Removal from All Open Documents
+
+This will trigger removal of all emojis in all current open documents
 
 # Mappings
 
